@@ -1,0 +1,2 @@
+class LearnedWord < ApplicationRecord
+end
