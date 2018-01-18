@@ -1,5 +1,4 @@
 class UserSerializer < ActiveModel::Serializer
   attributes :id, :username
-  has_many :languages, serializer: UserLanguageSerializer
-  # has_many :learned_words, serializer: LearnedWordSerializer
+  has_many :languages_plus_info
 end

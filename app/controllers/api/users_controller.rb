@@ -4,7 +4,7 @@ class Api::UsersController < ApplicationController
     @user = User.find(params[:id])
 
     if @user
-      render json: @user
+      render json: @user.user_to_render
     else
       render json: {errors: "user not found"}, status: 422
     end

@@ -8,12 +8,22 @@ class User < ApplicationRecord
     end.uniq
   end
 
-  # def languages_and_learned_words
-  #   hash = Hash.new { |h, k| h[k] = [] }
-  #   return self.learned_words.inject(hash) do |hash, word|
-  #     hash[word.language] << word.as_json
-  #     hash
-  #   end
-  # end
+  def user_to_render
+    hash = {"id": self.id, "username": self.username, "languages": {}}
+
+    self.languages.map do |l|
+      hash[:"languages"][l.id] = {"id": l.id, "name": l.name, "learned_words": [], "points": nil}
+    end
+
+    self.learned_words.each do |word|
+      hash[:"languages"][word.language.id][:"learned_words"] << word
+    end
+
+    self.points.each do |point|
+      hash[:"languages"][point.language.id][:"points"] = point
+    end
+
+    return hash
+  end
 
 end
