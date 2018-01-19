@@ -12,11 +12,11 @@ class User < ApplicationRecord
     hash = {"id": self.id, "username": self.username, "languages": {}}
 
     self.languages.map do |l|
-      hash[:"languages"][l.id] = {"id": l.id, "name": l.name, "learned_words": [], "points": nil}
+      hash[:"languages"][l.id] = {"id": l.id, "name": l.name, "learned_words_ids": [], "points": nil}
     end
 
     self.learned_words.each do |word|
-      hash[:"languages"][word.language.id][:"learned_words"] << word
+      hash[:"languages"][word.language.id][:"learned_words_ids"] << word.word_id
     end
 
     self.points.each do |point|
