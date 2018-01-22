@@ -1,7 +1,7 @@
 class Api::WordsController < ApplicationController
 
   def index
-    @words = Word.all
+    @words = Word.five_random_words(params[:language_id], params[:user_id])
     render json: @words
   end
 

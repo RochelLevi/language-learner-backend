@@ -9,6 +9,15 @@ class Api::UsersController < ApplicationController
     render json: @users
   end
 
+  # def get_random_words
+  #   @user = User.find(id: params[:id])
+  #   if @user
+  #     render json: @user.five_random_words()
+  #   else
+  #     render json: {errors: "user not found"}, status: 422
+  #   end
+  # end
+
   def show
     @user = User.find(username: params[:username])
 
