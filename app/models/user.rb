@@ -8,6 +8,20 @@ class User < ApplicationRecord
     end.uniq
   end
 
+  # def five_random_words(language_id)
+  #   language = Language.find(language_id)
+  #   five_words = []
+  #   while five_words.length < 5 do
+  #     index = (rand * language.words.length).ceil
+  #     word = Word.find(index)
+  #     if !self.learned_words.find_by(word_id: word.id)
+  #       five_words << word
+  #     end
+  #   end
+  #
+  #   return five_words
+  # end
+
   def user_to_render
     hash = {"id": self.id, "username": self.username, "languages": {}}
 
