@@ -22,6 +22,13 @@ papel = Word.create(name: "papel", english_translation: "paper", language_id: sp
 lapiz = Word.create(name: "lápiz", english_translation: "pencil", language_id: spanish.id)
 plato = Word.create(name: "plato", english_translation: "plate", language_id: spanish.id)
 
+cama = Word.create(name: "cama", english_translation: "bed", language_id: spanish.id)
+
+silla = Word.create(name: "silla", english_translation: "chair", language_id: spanish.id)
+papel = Word.create(name: "papel", english_translation: "paper", language_id: spanish.id)
+lapiz = Word.create(name: "lápiz", english_translation: "pencil", language_id: spanish.id)
+plato = Word.create(name: "plato", english_translation: "plate", language_id: spanish.id)
+
 ken = Word.create(name: "כן", english_translation: "yes", language_id: hebrew.id)
 shalom = Word.create(name: "שלום", english_translation: "hello", language_id: hebrew.id)
 yafeh = Word.create(name: "יפה", english_translation: "pretty", language_id: hebrew.id)
