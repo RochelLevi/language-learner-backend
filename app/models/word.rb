@@ -9,7 +9,7 @@ class Word < ApplicationRecord
     while five_words.length < 5 do
       index = (rand * language.words.length).ceil
       word = Word.find(index)
-      if !user.learned_words.find_by(word_id: word.id)
+      if (!user.learned_words.find_by(word_id: word.id) && !five_words.find{|el| el == word})
         five_words << word
       end
     end
