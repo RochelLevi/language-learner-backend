@@ -1,6 +1,7 @@
 class User < ApplicationRecord
   has_many :learned_words
   has_many :points
+  has_secure_password
 
   validates :username, presence: true
   validates :password, presence: true
