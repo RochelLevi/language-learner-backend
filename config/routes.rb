@@ -5,5 +5,7 @@ Rails.application.routes.draw do
     resources :learned_words, only: [:create]
     resources :words, only: [:create, :index]
     resources :points, only: [:update]
+    post '/auth', to: 'auth#create'
+    get '/current_user', to: 'auth#show'
   end
 end
