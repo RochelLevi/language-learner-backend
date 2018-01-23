@@ -2,6 +2,9 @@ class User < ApplicationRecord
   has_many :learned_words
   has_many :points
 
+  validates :username, presence: true
+  validates :password, presence: true
+
   def languages
     languages = self.learned_words.map do |w|
       w.language
@@ -26,7 +29,7 @@ class User < ApplicationRecord
     languages =  []
 
     self.languages.map do |l|
-      languages << {"id": l.id, "name": l.name, "points": self.points.find{|point| point.language_id == l.id}.total}
+      languages << {"id": l.id, "name": l.name, "points": self.points.find{|point| point.language_id == l.id}.total, "points_id": self.points.find{|point| point.language_id == l.id}.id}
     end
 
     # self.learned_words.each do |word|
