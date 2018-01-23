@@ -4,5 +4,6 @@ Rails.application.routes.draw do
     resources :languages, only: [:index]
     resources :learned_words, only: [:create]
     resources :words, only: [:create, :index]
+    resources :points, only: [:update]
   end
 end
