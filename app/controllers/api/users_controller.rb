@@ -19,7 +19,7 @@ class Api::UsersController < ApplicationController
   # end
 
   def show
-    @user = User.find(username: params[:username])
+    @user = User.find(params[:id])
 
     if @user
       render json: @user.user_to_render

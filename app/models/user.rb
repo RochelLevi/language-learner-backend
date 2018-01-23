@@ -23,21 +23,21 @@ class User < ApplicationRecord
   # end
 
   def user_to_render
-    hash = {"id": self.id, "username": self.username, "languages": {}}
+    languages =  []
 
     self.languages.map do |l|
-      hash[:"languages"][l.id] = {"id": l.id, "name": l.name, "learned_words_ids": [], "points": nil}
+      languages << {"id": l.id, "name": l.name, "points": self.points.find{|point| point.language_id == l.id}.total}
     end
 
-    self.learned_words.each do |word|
-      hash[:"languages"][word.language.id][:"learned_words_ids"] << word.word_id
-    end
+    # self.learned_words.each do |word|
+    #   hash[:"languages"][word.language.id][:"learned_words_ids"] << word.word_id
+    # end
 
-    self.points.each do |point|
-      hash[:"languages"][point.language.id][:"points"] = point
-    end
+    # self.points.each do |point|
+    #   hash[:"languages"][point.language.id][:"points"] = point
+    # end
 
-    return hash
+    return languages
   end
 
 end
