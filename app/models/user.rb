@@ -29,7 +29,7 @@ class User < ApplicationRecord
   def user_to_render
     languages =  []
 
-    self.languages.map do |l|
+    Language.all.map do |l|
       languages << {"id": l.id, "name": l.name, "points": self.points.find{|point| point.language_id == l.id}.total, "points_id": self.points.find{|point| point.language_id == l.id}.id}
     end
 
