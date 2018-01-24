@@ -3,7 +3,7 @@ class Api::UsersController < ApplicationController
   def index
     hash = {}
     @users = User.all.map do |u|
-      {"#{u.id}": u.username}
+      {username: u.username, id: "#{u.id}"}
     end
 
     render json: @users
