@@ -32,6 +32,7 @@ class Api::UsersController < ApplicationController
     @user = User.new(user_params)
 
     if @user.save
+      Language.all.each{|l| Point.create(total: 0, user_id: @user.id, language_id: l.id)}
       render json: @user
     else
       render json: {errors: @user.errors.full_messages}, status: 422
